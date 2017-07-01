@@ -1,21 +1,3 @@
-<?php
-
- include('action/connection.php');
- if(isset($_REQUEST['login'])){
-  $email = $_REQUEST['email'];
-  $pass = $_REQUEST['pwd'];
-
-  $query = "SELECT * from register where username='$email' and password='$pass'";
-  $fetch = $conn->query($query);
-
-  if($row = $fetch->fetch_assoc()){
-    header('Location: post_login.php');
-  }
-  else{
-    echo "Invalid username and password";
-  }
- }
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,8 +22,8 @@
 		      <a class="navbar-brand" href="index.html">Blood Bank</a>
 		    </div>
 		    <ul class="nav navbar-nav navbar-right">
-		      <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-		      <li><a href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+		      <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+		      <li><a href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
 		    </ul>
 		  </div>
 		</nav>
@@ -50,27 +32,30 @@
 		<div class="container-fluid">
 			<div class="row ngr">
 				<div class="col-md-12 ngc">
-					<div class="section1">
-						<h2>Login Portal</h2>
-					  <form class="form form-horizontal" action="login.php" method="POST">
-					    <div class="form-group">
-					      <label class="control-label col-sm-2" for="email">Email:</label>
-					      <div class="col-sm-10">
-					        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label class="control-label col-sm-2" for="pwd">Password:</label>
-					      <div class="col-sm-10">          
-					        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-					      </div>
-					    </div>
-					    <div class="form-group">        
-					      <div class="col-sm-offset-2 col-sm-10">
-					        <button type="submit" name="login" class="btn btn-default">Submit</button>
-					      </div>
-					    </div>
-					  </form>
+					<div class="dashboard">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4">
+								<div class="link-container">
+									<a href="donar/add.php" class="btn btn-info">donar's portal</a>
+								</div>
+								<div class="link-container">
+									<a href="receiver/index.php" class="btn btn-info">receiver's portal</a>
+								</div>
+								<div class="link-container">
+									<a href="admin/stock.php" class="btn btn-info">view stock</a>
+								</div>
+								<div class="link-container">
+									<select>
+										<option>Find a donar</option>
+										<option>AB+</option>
+										<option>AB-</option>
+										<option>O+</option>
+										<option>O-</option>
+									</select>
+								</div>
+								
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -87,6 +72,3 @@
 	</div>
 </body>
 </html>
-<?php
-
-?>
