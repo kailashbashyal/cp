@@ -1,3 +1,12 @@
+
+<?php 
+  include_once('../action/connection.php');
+
+  $sql = "select * from doner";
+  $result = $conn->query($sql);
+
+  if (mysqli_num_rows($result)>0){
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +28,11 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="../index.html">Blood Bank</a>
+          <a class="navbar-brand" href="../index.php">Blood Bank</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-          <li><a href="../register.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+          <li><a href="../login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+          <li><a href="../register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
         </ul>
       </div>
     </nav>
@@ -38,27 +47,27 @@
                 <tr>
                   <th>Name</th>
                   <th>Address</th>
-                  <th>Email</th>
+                 
                   <th>Contact</th>
                 </tr>
               </thead>
               <tbody>
+
+              <?php
+              while($row=$result->fetch_assoc()) {
+                ?>
                 <tr>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td><a href="details.html" class="btn btn-link">view</a></td>
+                  <td><?php echo $row["fname"]; ?></td>
+                  <td><?php echo $row["address"]; ?></td>
+                  <td><?php echo $row["contact"]; ?></td>
                 </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td><a href="details.html" class="btn btn-link">view</a></td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td><a href="details.html" class="btn btn-link">view</a></td>
-                </tr>
+                 
+                
+              <?php
+                }
+                ?>
               </tbody>
+
             </table>
           </div>
         </div>
@@ -76,3 +85,8 @@
   </div>
 </body>
 </html>
+
+<?php
+  
+    }
+?>

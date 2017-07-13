@@ -8,8 +8,9 @@
 		$address = $_POST['address'];
 		$username = $_POST['email'];
 		$password = $_POST['pwd'];
+		$value = $_POST['ass'];
 
-		$sql = "insert into register values (null,'$fname','$lname','$username','$password','$contact','$address')";
+		$sql = "insert into register values (null,'$fname','$lname','$username','$password','$contact','$address',$value)";
 		
 		
 		if(mysqli_query($conn,$sql)){
@@ -40,7 +41,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="index.html">Blood Bank</a>
+		      <a class="navbar-brand" href="index.php">Blood Bank</a>
 		    </div>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
@@ -93,14 +94,14 @@
 					      </div>
 					    </div>
 					    <div class="form-group">
-					      <label class="control-label col-sm-3" for="contact">Contact:</label>
+					      <label class="control-label col-sm-3" for="contact">user:</label>
 					      <div class="col-sm-8">
-					        <select class="as">
+					        <select class="as" name="ass">
 					        	<optgroup label="Staff">
-					        		<option>Admin</option>
+					        		<option value="1">Admin</option>
 					        	</optgroup>
 					        	<optgroup label="Regular">
-					        		<option>User</option>
+					        		<option value="0">User</option>
 					        	</optgroup>
 					        </select>
 					      </div>

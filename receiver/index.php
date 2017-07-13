@@ -41,7 +41,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="index.html">Blood Bank</a>
+		      <a class="navbar-brand" href="index.php">Blood Bank</a>
 		    </div>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
@@ -91,14 +91,14 @@
 					      <label class="control-label col-sm-3" for="contact">Blood type:</label>
 					      <div class="col-sm-8">
 					        <select class="as" name  = "selectbox">
-								<option value="1">AB+</option>
-								<option value="2">AB-</option>
-								<option value="3">O+</option>
-								<option value="4">O-</option>
-								<option value="5">A+</option>
-								<option value="6">A-</option>
-								<option value="7">B+</option>
-								<option value="8">B-</option>
+								<option value="AB+">AB+</option>
+								<option value="AB-">AB-</option>
+								<option value="O+">O+</option>
+								<option value="o-">O-</option>
+								<option value="A+">A+</option>
+								<option value="A-">A-</option>
+								<option value="B+">B+</option>
+								<option value="B-">B-</option>
 							</select>
 					      </div>
 					    </div>

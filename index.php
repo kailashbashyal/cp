@@ -19,7 +19,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="index.html">Blood Bank</a>
+		      <a class="navbar-brand" href="index.php">Blood Bank</a>
 		    </div>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
@@ -33,7 +33,7 @@
 			<div class="row ngr">
 				<div class="col-md-12 ngc">
 					<div class="section1">
-						<h1>We are at your service.</h1>
+						<h1>Blood Bank Management System (BBMS) is a browser based system that is designed to store, process, retrieve and analyze information concerned with the administrative and inventory management within a blood bank. This project aims at maintaining all the information pertaining to blood donors and help them manage in a better way. Aim is to provide transparency in this field, make the process of obtaining blood from a blood bank hassle free and corruption free and make the system of blood bank management effective.</h1>
 					</div>
 				</div>
 			</div>

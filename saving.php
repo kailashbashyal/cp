@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php
+	session_start();
+	include_once('action/connection.php');
+	$id = $_GET['id'];	
+	$sql = "select * from doner where bloodgroup='" . $id . "'";
+	// echo $sql;
+	$result = $conn->query($sql);
+	
+	while($row=$result->fetch_assoc()) {
+		var_dump($row);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,48 +51,29 @@
 		</nav>
 	</div>
 	<div class="main-content">
-		<div class="container-fluid">
-			<div class="row ngr">
-				<div class="col-md-12 ngc">
-					<div class="dashboard">
-						<div class="row">
-							<div class="col-md-4 col-md-offset-4">
-								<?php 
-									if($_SESSION['is_admin'] == 0) {
-								?>
-								<div class="link-container">
-									<a href="donar/add.php" class="btn btn-info">donar's portal</a>
-								</div>
-								<div class="link-container">
-									<a href="receiver/index.php" class="btn btn-info">receiver's portal</a>
-								</div>
-								<?php 
-									} else {
-								?>
-								<div class="link-container">
-									<a href="admin/stock.php" class="btn btn-info">view stock</a>
-								</div>
-								
-								<?php 
-									}
-								?>
-								<div class="link-container">
-									<select class="bt">
-										<option>Find a blood</option>
-										<option value="AB Positive">AB+</option>
-										<option value="AB Negative">AB-</option>
-										<option value="O Positive">O+</option>
-										<option value="O Negative">O-</option>
-										<option value="A Positive">A+</option>
-										<option value="A Negative">A-</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<h1>similar ID</h1>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Blood group</th>
+					<th>Contact</th>
+					<th>Address</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+			      <td><?php echo $row["fname"]; ?></td>
+			      <td><?php echo $row["lname"]; ?></td>
+			      <td><?php echo $row["bloodgroup"]; ?></td>
+			      <td><?php echo $row["contact"]; ?></td>
+			      
+			      <td><?php echo $row["address"]; ?></td>
+			     
+			    </tr>
+			</tbody>
+		</table>
 	</div>
 	<div class="footer">
 		<div class="container-fluid">
@@ -95,3 +86,6 @@
 	</div>
 </body>
 </html>
+<?php
+}
+?>

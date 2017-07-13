@@ -1,3 +1,14 @@
+<?php 
+  include_once('../action/connection.php');
+
+  $sql = "select * from doner";
+  $result = mysqli_query($conn,$sql);
+  if (mysqli_num_rows($result)>0){
+    while($row=mysqli_fetch_array($result)){
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +30,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Blood Bank</a>
+          <a class="navbar-brand" href="index.php">Blood Bank</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
@@ -43,20 +54,11 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>John</td>
+                  <td><?php echo $row ["bloodgroup"]; ?></td>
                   <td>Doe</td>
-                  <td><a href="details.html" class="btn btn-link">view</a></td>
+                  <td><a href="details.php" class="btn btn-link">view</a></td>
                 </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td><a href="details.html" class="btn btn-link">view</a></td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td><a href="details.html" class="btn btn-link">view</a></td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -75,3 +77,7 @@
   </div>
 </body>
 </html>
+<?php
+}
+  }
+?>

@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
  include('action/connection.php');
  if(isset($_REQUEST['login'])){
   $email = $_REQUEST['email'];
@@ -9,9 +9,10 @@
   $fetch = $conn->query($query);
 
   if($row = $fetch->fetch_assoc()){
+  	$_SESSION['is_admin'] = $row['is_admin'];
+  	$_SESSION['loggedin'] = 1;
     header('Location: post_login.php');
-  }
-  else{
+  } else {
     echo "Invalid username and password";
   }
  }
@@ -37,7 +38,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="index.html">Blood Bank</a>
+		      <a class="navbar-brand" href="index.php">Blood Bank</a>
 		    </div>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
